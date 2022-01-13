@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import CountryList from '../components/CountryList';
+import CountryDetail from '../components/CountryDetail';
 
 const CountryContainer = () => {
 
     const [countryList, setCountryList] = useState([]);
+    const [selectedCountry, setSelectedCountry] = useState(null)
 
     const getCountries = () => {
         fetch('https://restcountries.com/v3.1/all')
@@ -15,14 +17,15 @@ const CountryContainer = () => {
         getCountries();
     }, [])
 
-    const onCountryClick = () => {
-        console.log("this is a click")
+    const onCountryClick = (country) => {
+        setSelectedCountry(country)
     }
 
     return(
         <div>
         <h2>All of the Countries</h2>
         <CountryList countryList={countryList} onCountryClick={onCountryClick}/>
+        {selectedCountry ? <CountryDetail country = {selectedCountry}/> : null}
         </div>
     )
 

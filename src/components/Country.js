@@ -1,13 +1,14 @@
 import React from 'react';
 
 
-const Country = ({name, population, onCountryClick}) => {
+
+const Country = ({country, onCountryClick}) => {
     
-    const handleClick = () => onCountryClick(name);
+    const handleClick = () => onCountryClick(country);
 
     return(
 
-        <li onClick={handleClick}>{name} {population}</li>
+        <li onClick={handleClick}>{country.name.common} {country.population}</li>
     )
 
 }
