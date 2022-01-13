@@ -1,13 +1,14 @@
 import React from 'react'
 import Country from './Country'
 
-const CountryList = () => {
+const CountryList = ({countryList}) => {
+
+    const listOfCountries = countryList.map((country, index) => {
+        return <Country name={country.name.common} population={country.population} key={index}/>
+    })
 
     return(
-        <div>
-        <h2>Hello World</h2>
-        <Country/>
-        </div>
+        <ul>{listOfCountries}</ul>
     )
 
 }
