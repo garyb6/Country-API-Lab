@@ -27,11 +27,13 @@ const CountryContainer = () => {
     }
 
     const addCountry = (submittedCountry) => {
+        // if (favList.includes(submittedCountry) ===false){
         submittedCountry.id = Date.now();
         const updatedCountries = [...favList, submittedCountry]
         setFavList(updatedCountries)
-    }
+        
 
+    }
 
     return(
         <>

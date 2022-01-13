@@ -15,8 +15,9 @@ const FavCountryForm = ({onCountrySubmit}) => {
         event.preventDefault()
         const countryToSubmit = favCountry.trim()
 
-        if (!countryToSubmit) {return}
-    
+        if (!countryToSubmit) {
+            return}
+            
 
     onCountrySubmit(
         {country: countryToSubmit}
