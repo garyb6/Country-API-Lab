@@ -9,7 +9,9 @@ const CountryContainer = () => {
 
     const [countryList, setCountryList] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null)
+    const [favList, setFavList] = useState([]);
 
+    
     const getCountries = () => {
         fetch('https://restcountries.com/v3.1/all')
         .then(res => res.json())
@@ -24,6 +26,13 @@ const CountryContainer = () => {
         setSelectedCountry(country)
     }
 
+    const addCountry = (submittedCountry) => {
+        submittedCountry.id = Date.now();
+        const updatedCountries = [...favList, submittedCountry]
+        setFavList(updatedCountries)
+    }
+
+
     return(
         <>
         <h2>All of the Countries</h2>
@@ -31,8 +40,8 @@ const CountryContainer = () => {
         <CountryList countryList={countryList} onCountryClick={onCountryClick}/>
         {selectedCountry ? <CountryDetail country = {selectedCountry}/> : null}
         </div>
-        <FavCountryList/>
-        <FavCountryForm/> 
+        <FavCountryList favList={favList}/>
+        <FavCountryForm onCountrySubmit={(favCountry) => addCountry(favCountry)}/> 
         </>
     )
 
