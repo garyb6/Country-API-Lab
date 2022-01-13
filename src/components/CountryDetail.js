@@ -6,6 +6,7 @@ const CountryDetail = ({country}) => {
     return (
         <div>
             <p>{country.name.official}</p>
+            <img src={country.flags.png}></img>
 
         </div>
     

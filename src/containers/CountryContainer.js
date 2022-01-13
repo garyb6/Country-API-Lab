@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import CountryList from '../components/CountryList';
 import CountryDetail from '../components/CountryDetail';
+import './CountryContainer.css'
+import FavCountryList from '../components/FavCountryList';
+import FavCountryForm from '../components/FavCountryForm';
 
 const CountryContainer = () => {
 
@@ -22,11 +25,15 @@ const CountryContainer = () => {
     }
 
     return(
-        <div>
+        <>
         <h2>All of the Countries</h2>
+        <div className="MainList">
         <CountryList countryList={countryList} onCountryClick={onCountryClick}/>
         {selectedCountry ? <CountryDetail country = {selectedCountry}/> : null}
         </div>
+        <FavCountryList/>
+        <FavCountryForm/> 
+        </>
     )
 
 }
