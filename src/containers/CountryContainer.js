@@ -15,10 +15,14 @@ const CountryContainer = () => {
         getCountries();
     }, [])
 
+    const onCountryClick = () => {
+        console.log("this is a click")
+    }
+
     return(
         <div>
         <h2>All of the Countries</h2>
-        <CountryList countryList={countryList}/>
+        <CountryList countryList={countryList} onCountryClick={onCountryClick}/>
         </div>
     )
 
